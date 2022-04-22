@@ -2,16 +2,15 @@ import './App.css'
 
 // NOTICE:
 // EXAMPLE IMPORT
-import Example from '@components/Example'
+import Login from '@pages/Login'
 // 
 
 
-function App() {
-  
+function App() { 
 
   return (
     <div className="App">
-      <Example />
+      <Login />
     </div>
   )
 }

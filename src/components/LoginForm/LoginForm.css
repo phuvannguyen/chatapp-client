@@ -1,0 +1,32 @@
+.loginForm {
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.form {
+    padding: 0;
+    margin: 0; 
+
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    
+}
+
+.social {
+    display: flex;
+}
+
+.google  {
+    margin-right: 5px;
+}
+
+
+.github  {
+    margin-left: 5px;
+}
