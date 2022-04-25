@@ -20,7 +20,7 @@ function LoginForm() {
 
         </form>
         <h3>
-                Don't have a account ? <a href='#'>Sign Up</a>
+                Don't have a account ? <a href='/signup'>Sign Up</a>
         </h3>
         <h3>Login with</h3>
         <div className='social'>
