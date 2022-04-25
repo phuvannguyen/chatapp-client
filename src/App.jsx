@@ -2,12 +2,12 @@ import './App.css'
 import {
   BrowserRouter,
   Routes,
-  Route,
-  
+  Route,  
 } from "react-router-dom";
 // NOTICE:
 // EXAMPLE IMPORT
 import Login from '@pages/Login'
+import SignUp from '@pages/SignUp';
 // 
 
 
@@ -19,6 +19,7 @@ function App() {
       <Routes>
         {/* <Route path="/" element={ />} /> */}
         <Route path="/" element={<Login />} />
+        <Route path="/signup/" element={<SignUp />} />
       </Routes>
     </BrowserRouter>
      
