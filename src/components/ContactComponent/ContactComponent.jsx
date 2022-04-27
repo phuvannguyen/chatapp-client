@@ -10,8 +10,7 @@ function ContactComponent() {
         <div className="chat_headerinfo">
           <h3>NgạoSenpai</h3>
           <p>Em đang làm việc ở Đà Nẵng</p>                   
-        </div>   
-               
+        </div>               
 
       </div>
         

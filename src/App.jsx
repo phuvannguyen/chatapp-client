@@ -28,8 +28,7 @@ function App() {
           <div className='chatApp'>
             <Siderbar />
             <Main />
-          </div>} />
-        
+          </div>} />     
 
         
       </Routes>

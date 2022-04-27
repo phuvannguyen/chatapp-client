@@ -1,0 +1,75 @@
+.header-sider {
+    height: 30%;
+}
+
+.user-info {
+    margin: 5px;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;    
+    
+}
+
+.avatar {
+    display: flex;
+}
+
+.user-info .username {
+    padding-left: 10px;    
+}
+
+.user-info .username p {
+    font-size: 14px;
+}
+
+.search {
+    margin-right: 5px;
+    padding: 10px 10px;
+
+    display: flex;
+    justify-content: space-between;
+}
+.search .MuiSvgIcon-root {
+    align-self: center
+
+}
+
+.search-form {
+    padding: 10px;
+
+    flex-basis: 90%;
+    display: flex;  
+    
+    background-color: #FFF;
+    border-radius: 10px;
+}
+
+.search-form .MuiSvgIcon-root {
+    align-self: center;
+}
+
+
+
+.search-form form input {
+    border: none;
+    
+}
+
+
+.icon {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.chat, .contacts, .notification {
+    padding-bottom: 10px;
+}
+
+.icon p {
+    font-size: 12px;
+    text-align: center;
+}
+
