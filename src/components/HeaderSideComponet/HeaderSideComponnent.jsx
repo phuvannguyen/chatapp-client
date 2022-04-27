@@ -24,7 +24,7 @@ function HeaderSideComponnent() {
         <div className="search">
             <div className="search-form">
                 <SearchIcon />
-                <form className='form-search'>
+                <form >
                     <input type="text"  placeholder='People, Users, Group'/>
                 </form>
             </div>
