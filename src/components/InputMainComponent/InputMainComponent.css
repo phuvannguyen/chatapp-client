@@ -49,8 +49,10 @@
     position: absolute;
     left: calc(100% + 25px);
     margin: auto 0;
+    padding: 15px;
 
-    border: none;    
+    border: none;
+    border-radius: 5px;    
     background-color: #84dcc6;
     
 
