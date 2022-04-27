@@ -1,0 +1,71 @@
+.input-main {
+    height: 20%;
+    margin: 0 20px 60px 60px;
+        
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-main .icon {
+    flex-basis: 20%
+}
+
+.input-main .input-form {  
+    flex-basis: 70%;
+
+    padding: 10px;
+    margin: 5px;
+    border-radius: 20px;
+
+    display: flex;    
+    align-items: center;    
+
+    background-color: #eee;
+      
+
+}
+
+.input-form > form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+}
+
+.input-form > form > input{
+    flex-basis: 100%;
+    
+    padding: 10px;
+    border: none;
+    background-color: #eee;
+    
+
+}
+
+.input-form > form > button{
+    position: absolute;
+    left: calc(100% + 25px);
+    margin: auto 0;
+
+    border: none;    
+    background-color: #84dcc6;
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+/* style .icon */
+.input-main .MuiSvgIcon-root {
+    color: gray
+}
