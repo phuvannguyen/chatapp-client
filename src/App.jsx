@@ -7,11 +7,14 @@ import {
 // NOTICE:
 // EXAMPLE IMPORT
 import Login from '@pages/Login'
-import SignUp from '@pages/SignUp';
+import SignUp from '@pages/SignUp'
+import Main from '@pages/Main';
+import Siderbar from '@pages/Siderbar';
 // 
 
 
-function App() { 
+function App() {
+  const id = "1d2f12d1f4f4d5"
 
   return (
     <div className="App">
@@ -20,6 +23,15 @@ function App() {
         {/* <Route path="/" element={ />} /> */}
         <Route path="/" element={<Login />} />
         <Route path="/signup/" element={<SignUp />} />
+        <Route path={"/" + id + "/"} 
+        element={
+          <div className='chatApp'>
+            <Siderbar />
+            <Main />
+          </div>} />
+        
+
+        
       </Routes>
     </BrowserRouter>
      
