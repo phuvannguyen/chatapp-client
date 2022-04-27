@@ -1,0 +1,7 @@
+.chat-main {
+    height: 70%;
+
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    
+}
