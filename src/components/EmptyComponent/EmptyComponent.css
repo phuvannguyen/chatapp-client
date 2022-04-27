@@ -1,0 +1,28 @@
+.empty {
+    height: 70%;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty h1 {
+    margin: 10px;
+}
+
+.empty .username {
+    padding-left: 10px;
+}
+
+.empty button {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #9ac4f8;
+    border-radius: 10px;
+    border: none;
+
+    color: white;
+    font-size:medium;
+}
