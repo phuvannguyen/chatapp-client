@@ -1,9 +1,11 @@
 import React from 'react'
 import "./ChatMainComponent.css"
 import MessagerComponent from '@components/MessagerComponent'
+import EmptyComponent from '@components/EmptyComponent'
 
 function ChatMainComponent() {
-  return (
+  
+  return (    
     <div className="chat-main">
       <MessagerComponent />
       <MessagerComponent />
