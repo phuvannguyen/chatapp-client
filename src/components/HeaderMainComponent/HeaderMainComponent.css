@@ -1,0 +1,48 @@
+.header-main {
+    height: 10%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-left: solid 1px lightgray;
+    border-bottom: solid 1px lightgray; 
+
+    background-color: #eff0d1;
+
+}
+
+.header-main .icon {
+    flex-basis: 15%;
+    align-self: center;
+    
+    margin: auto 0px;
+    
+    
+}
+
+
+
+.usermain-info {
+    margin: 5px;
+    padding: 20px 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.usermain-info h3 {
+    color: #7c898b;
+}
+
+.usermain-info p {
+    color: #7c898b;
+
+}
+.usermain-info .username {
+    padding-left: 10px; 
+
+}
