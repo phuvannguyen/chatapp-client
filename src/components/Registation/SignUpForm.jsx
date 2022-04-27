@@ -4,7 +4,7 @@ import "./SignUpForm.css"
 function SignUpForm() {
   return (
     <div className="signup-form">
-      <h1>SignUp</h1>
+      <h1>Sign Up</h1>
       <form className="form-signup">
         <input type="text" className="username" placeholder='User name'/>
         <input type="email" className='email' placeholder='Email'/>
