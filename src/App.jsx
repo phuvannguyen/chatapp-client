@@ -14,7 +14,7 @@ import Siderbar from '@pages/Siderbar';
 
 
 function App() {
-  const id = "1d2f12d1f4f4d5"
+  const id = "chat"
 
   return (
     <div className="App">
