@@ -1,4 +1,11 @@
 .main {
     height: 100%;
     flex: 80%
+};
+
+@media screen and (max-width = 480px) {
+    .main {
+        flex: 100%
+    }
+    
 }
