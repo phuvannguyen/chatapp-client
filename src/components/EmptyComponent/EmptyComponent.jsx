@@ -4,7 +4,7 @@ import { Avatar} from '@mui/material';
 
 function EmptyComponent() {
   return (
-    <div className='empty'>
+    <div className='empty main'>
       <h1>Welcome, Phu Nguyen</h1>
       <div className="avatar">                
           <Avatar alt="Phu Nguyen" src="https://i.pravatar.cc/150?u=fake@pravatar.com" />
