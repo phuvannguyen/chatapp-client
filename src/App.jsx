@@ -18,7 +18,7 @@ function App() {
   const chat = "chat";
   const id = "id";
   const user = "phu1994";
-  const room = "room1"
+  const room = "room"
 
   return (
     <div className="App">
