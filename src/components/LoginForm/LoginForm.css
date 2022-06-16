@@ -18,6 +18,11 @@
     
 }
 
+.form div, a, label {
+    text-align: center;
+
+}
+
 .social {
     display: flex;
 }
