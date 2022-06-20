@@ -1,8 +1,11 @@
 import LoginForm  from '@components/LoginForm'
+import AuthService from "../../service/auth.service"
 import React, {useState, useRef} from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from "axios"
 
 function Login() {
+  let navigate = useNavigate();
   const form = useRef();
   const checkBtn = useRef();
   const [user, setUser] = useState({
@@ -59,16 +62,19 @@ function Login() {
     e.preventDefault();
     form.current.validateAll();
     if (checkBtn.current.context._errors.length === 0) {
-      axios.post('http://localhost:8080/api/login', {
-        username, password
-      })
+      AuthService.login(username, password)
       .then(function (response) {
         setUser({
           ...user,
           error: "Login sucess",
           success: true
         });
-        console.log(response)
+        if (response.data.token) {
+          localStorage.setItem("user", JSON.stringify(response.data))
+        };
+        navigate("/chat/room/id")
+
+        
       })
       .catch(function (error) {
         setUser({
