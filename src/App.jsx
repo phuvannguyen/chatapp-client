@@ -29,23 +29,29 @@ function App() {
         <Route path="/signup/" element={<SignUp />} />
         <Route path={"/" + chat + "/" + user + "/" + id}
           element={
-          <div className='chatApp'>
-            <Siderbar />
-            <EmptyComponent />
-          </div>} />
-          <Route path={"/" + chat + "/"} //This is default fucntion: When routter: /chat/: left component is siderbar and right component is user profile
+            <div className='chatApp'>
+              <Siderbar />
+              <EmptyComponent />
+            </div>
+          } 
+        />
+        <Route path={"/" + chat + "/"} //This is default fucntion: When routter: /chat/: left component is siderbar and right component is user profile
           element={
-          <div className='chatApp'>
-            <Siderbar />
-            <EmptyComponent />
-          </div>} />
+            <div className='chatApp'>
+              <Siderbar />
+              <EmptyComponent />
+            </div>
+          } 
+        />
         <Route path={"/" + chat + "/" + room + "/" + id} 
           element={
-          <div className='chatApp'>
-            <Siderbar />
-            <Main />
-          </div>} />     
-
+            <div className='chatApp'>
+              <Siderbar />
+              <Main />
+            </div>
+          } 
+        />     
+        
         
       </Routes>
     </BrowserRouter>
