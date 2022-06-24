@@ -2,14 +2,14 @@ import React from 'react'
 import "./ContactComponent.css"
 import { Avatar } from '@mui/material';
 
-function ContactComponent() {
-  return (
+function ContactComponent({ value }) {
+  return (    
     <div className="chat_header">
       <div className='chat_avatar'>
-        <Avatar alt="Ngaosenpai" src="" />
+        <Avatar alt={value.title} src="" />
         <div className="chat_headerinfo">
-          <h3>NgạoSenpai</h3>
-          <p>Em đang làm việc ở Đà Nẵng</p>                   
+          <h3>{value.title}</h3>
+          <p>Have nothing message</p>                 
         </div>               
 
       </div>
