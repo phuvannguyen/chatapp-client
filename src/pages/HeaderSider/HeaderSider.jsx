@@ -1,7 +1,9 @@
 import React from 'react'
 import HeaderSideComponnent from '@components/HeaderSideComponet'
 
-function HeaderSider() {
+
+function HeaderSider() {  
+
   return (
     <HeaderSideComponnent />
   )
