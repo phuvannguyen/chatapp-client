@@ -4,15 +4,14 @@ import UserContext from "./UserContext";
 function UserContextProvider({ children }){
   const data = JSON.parse(localStorage.getItem("user"));
   let userGlobal;
-  const { userLocal, token } = data;
-  userLocal && token ? userGlobal =  userLocal : userGlobal = ""; 
-  
+  const { user, token } = data;  
+  user && token ? userGlobal =  user : userGlobal = "";   
 
-  const [user, setUser] = useState({
-    userGlobal
+  const [userLocal, setUserLocal] = useState({
+    ...userGlobal
   })
   return (
-    <UserContext.Provider value={{user, setUser}}>
+    <UserContext.Provider value={{userLocal, setUserLocal}}>
       { children }
     </UserContext.Provider>
   )
