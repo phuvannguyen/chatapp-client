@@ -1,7 +1,7 @@
 import React from 'react'
 import HeaderSideComponnent from '@components/HeaderSideComponet'
-import ContactComponent from '@components/ContactComponent'
 import "./SiderbarComponent.css"
+import Contact from '@pages/Contact';
 
 function SiderbarComponent({contact}) {
   const { contacts, error, success} = contact;
@@ -12,7 +12,7 @@ function SiderbarComponent({contact}) {
       {success && 
         <div className="main_siderbar">        
           {contacts.map((value, index) => {
-            return (<ContactComponent value={value} />)         
+            return (<Contact value={value} key={index}/>)       
             
 
           })}
