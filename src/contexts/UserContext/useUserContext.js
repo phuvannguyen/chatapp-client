@@ -3,7 +3,6 @@ import UserContext from "./UserContext";
 
 function useUserContext(){
   const example = useContext(UserContext)
-  console.log("example")
   return example
 }
 
