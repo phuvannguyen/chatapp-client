@@ -10,10 +10,15 @@ const getRooms = (id) => {
   return axios.get(API_URL + "api/" + "rooms",{headers:  authHeader(), params:{_id: id}})
 }
 
+const getOneRoom = (id) => {
+  return axios.get(API_URL + "api/" + "rooms",{headers:  authHeader(), params:{_id: id}})
+}
+
 
 const UserService = {
   getPublicContent,
-  getRooms
+  getRooms,
+  getOneRoom
   
 };
 export default UserService;
