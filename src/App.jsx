@@ -11,14 +11,21 @@ import SignUp from '@pages/SignUp'
 import Main from '@pages/Main';
 import Siderbar from '@pages/Siderbar';
 import EmptyComponent from '@components/EmptyComponent';
-// 
+import { useRoomContext } from '@contexts/RoomContext';
+import { useUserContext } from '@contexts/UserContext';
 
 
 function App() {
+  const { room } = useRoomContext();
+  const { userLocal } = useUserContext();
+
+  const id = userLocal._id;
+  const user = userLocal.username;
+
   const chat = "chat";
-  const id = "id";
-  const user = "phu1994";
-  const room = "room"
+  const rooms = "room"
+  const idRoom = room.roomIdActivated; 
+  
 
   return (
     <div className="App">
@@ -43,7 +50,7 @@ function App() {
             </div>
           } 
         />
-        <Route path={"/" + chat + "/" + room + "/" + id} 
+        <Route path={"/" + chat + "/" + rooms + "/" + idRoom} 
           element={
             <div className='chatApp'>
               <Siderbar />
