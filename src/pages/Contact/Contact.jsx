@@ -1,20 +1,20 @@
 import ContactComponent from "@components/ContactComponent";
 import React, { useEffect, useState } from 'react'
 import { useRoomContext } from "@contexts/RoomContext";
+import { useNavigate } from 'react-router-dom';
 
 function Contact({value}) {
-  const [id, setId] = useState("");
-  const {room, setRoom} = useRoomContext();   
-
+  const { room, setRoom } = useRoomContext();  
   
-  const handleUserClick = (_id) =>  {    
-    setRoom(
-      {
-        roomIdActivated: _id
-      }
-      
-    );  
-      
+  const chat = "chat";
+  const rooms = "room"; 
+  
+
+  let navigate = useNavigate(); 
+  
+  const handleUserClick = (_id) =>  {        
+    setRoom({roomIdActivated: _id});    
+    navigate("/" + chat + "/" + rooms + "/" + _id);  
     
 
   }
