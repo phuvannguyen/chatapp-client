@@ -11,7 +11,7 @@ const getRooms = (id) => {
 }
 
 const getOneRoom = (id) => {
-  return axios.get(API_URL + "api/" + "rooms",{headers:  authHeader(), params:{_id: id}})
+  return axios.get(API_URL + "api/" + "rooms/" + id ,{headers:  authHeader()})
 }
 
 
