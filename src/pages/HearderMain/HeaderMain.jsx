@@ -1,8 +1,11 @@
 import React from 'react'
 import HeaderMainComponent from '@components/HeaderMainComponent'
-function HeaderMain() {
+function HeaderMain({roomState}) {
+
+  const title = roomState?.title || "No Names";
+  
   return (
-    <HeaderMainComponent />
+    <HeaderMainComponent title={title}/>
   )
 }
 
