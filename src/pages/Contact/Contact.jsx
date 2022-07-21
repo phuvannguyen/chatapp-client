@@ -14,7 +14,8 @@ function Contact({value}) {
   
   const handleUserClick = (_id) =>  {        
     setRoom({roomIdActivated: _id});    
-    navigate("/" + chat + "/" + rooms + "/" + _id);  
+    navigate("/" + chat + "/" + rooms + "/" + _id);
+      
     
 
   }
