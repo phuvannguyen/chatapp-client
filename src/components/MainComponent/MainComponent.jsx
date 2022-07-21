@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./MainComponent.css"
 import HeaderMainComponent from '@components/HeaderMainComponent'
 import ChatMainComponent from '@components/ChatMainComponent'
 import InputMainComponent from '@components/InputMainComponent'
+import HeaderMain from '@pages/HearderMain'
+import ChatMain from '@pages/ChatMain'
+import InputMain from '@pages/InputMain'
 
 
-function MainComponent() {
+function MainComponent({roomState}) {   
   
   return (
     <div className="main">
-      <HeaderMainComponent />
-      <ChatMainComponent />
-      <InputMainComponent />
+      <HeaderMain roomState={roomState}/>
+      <ChatMain roomState={roomState}/>
+      <InputMain roomState={roomState}/>
     </div>
   )
 }
