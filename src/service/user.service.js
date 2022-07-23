@@ -6,6 +6,8 @@ const getPublicContent = () => {
   return axios.get(API_URL + "all", { headers: authHeader() });
 };
 
+
+
 const getRooms = (id) => {
   return axios.get(API_URL + "api/" + "rooms",{headers:  authHeader(), params:{_id: id}})
 }
@@ -14,11 +16,17 @@ const getOneRoom = (id) => {
   return axios.get(API_URL + "api/" + "rooms/" + id ,{headers:  authHeader()})
 }
 
+const getChats = (id) => {
+  return axios.get(API_URL + "api/" + "rooms/" + id + "/chats",{headers:  authHeader()})
+};
+
+
 
 const UserService = {
   getPublicContent,
   getRooms,
-  getOneRoom
+  getOneRoom,
+  getChats
   
 };
 export default UserService;
