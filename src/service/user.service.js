@@ -6,7 +6,9 @@ const getPublicContent = () => {
   return axios.get(API_URL + "all", { headers: authHeader() });
 };
 
-
+const getUser = (id) => {
+  return axios.get(API_URL + "api/" + "users/" + id)
+}
 
 const getRooms = (id) => {
   return axios.get(API_URL + "api/" + "rooms",{headers:  authHeader(), params:{_id: id}})
