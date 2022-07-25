@@ -12,10 +12,10 @@ function Contact({value}) {
 
   let navigate = useNavigate(); 
   
-  const handleUserClick = (_id) =>  {        
+  const handleUserClick = (_id, e) =>  {    
+    e.preventDefault();        
     setRoom({roomIdActivated: _id});    
-    navigate("/" + chat + "/" + rooms + "/" + _id);
-      
+    navigate("/" + chat + "/" + rooms + "/" + _id);     
     
 
   }
