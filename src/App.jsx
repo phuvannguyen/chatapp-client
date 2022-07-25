@@ -50,7 +50,7 @@ function App() {
             </div>
           } 
         />
-        <Route path={"/" + chat + "/" + rooms + "/" + idRoom} 
+        <Route path={"/" + chat + "/" + rooms + "/:" + idRoom} 
           element={
             <div className='chatApp'>
               <Siderbar />
