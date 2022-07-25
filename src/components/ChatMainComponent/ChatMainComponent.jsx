@@ -1,29 +1,16 @@
 import React from 'react'
 import "./ChatMainComponent.css"
-import MessagerComponent from '@components/MessagerComponent'
-import EmptyComponent from '@components/EmptyComponent'
+import Messager from '@pages/Messager';
 
-function ChatMainComponent() {
+function ChatMainComponent({chats}) {
+  const {content, error, success} = chats;  
   
-  return (    
-    <div className="chat-main">
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-      <MessagerComponent />
-
-    </div>
+  return (
+    <div className='chat-main'>
+      {error && (<Messager error={error} success={success}/>)}
+      {content.map((element, index) => 
+        <Messager key={index} chat={element} error={error} success={success}/>)}
+    </div> 
   )
 }
 
