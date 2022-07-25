@@ -1,9 +1,9 @@
 import React from 'react'
 import MessagerComponent from '@components/MessagerComponent'
 
-function Messager() {
+function Messager({chat, error, success}) { 
   return (
-    <MessagerComponent />
+    <MessagerComponent chat={chat} error={error} success={success}/>
   )
 }
 

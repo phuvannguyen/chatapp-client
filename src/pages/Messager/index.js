@@ -1,3 +1,3 @@
-import Messager from "./Messager";
+import Messager from "./Messager"
 
 export default Messager
