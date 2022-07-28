@@ -87,7 +87,7 @@ function Login() {
       .catch(function (error) {
         setUser({
           ...user,
-          error: error.response.data,
+          error: error.message,
           success: false
         });
         console.log(error)
