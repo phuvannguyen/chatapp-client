@@ -35,7 +35,7 @@ const getChats = (idRoom) => {
 const createChat = (idRoom, content) => {
   return instance.post(`api/rooms/${idRoom}/chats`, {
     content: content
-  }, {params:{_id: idUser}})
+  })
 }
 
 
