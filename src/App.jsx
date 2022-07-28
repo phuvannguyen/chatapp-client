@@ -28,9 +28,9 @@ function App() {
                 <div className='chatApp'>
                   <Siderbar />
                   <Routes>
-                    <Route path={":user/:id"} element={<EmptyComponent />}/>
+                    <Route path={"room/:idRoom"} element={<Main />}/>                    
                     <Route path={""} element={<EmptyComponent />}/>
-                    <Route path={"room/:idRoom"} element={<Main />}/>
+                    <Route path={":user/:id"} element={<EmptyComponent />}/>                    
                   </Routes>
                   <EmptyComponent />
                 </div>
@@ -38,8 +38,7 @@ function App() {
             />          
           
         </Routes>
-      </BrowserRouter>
-     
+      </BrowserRouter>     
     </div>
   )
 }
