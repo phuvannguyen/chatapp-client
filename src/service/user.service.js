@@ -1,26 +1,42 @@
 import axios from "axios";
 import authHeader from "./auth-header";
+// import { useUserContext } from "@contexts/UserContext";
+
 const API_URL = "http://localhost:8080/";
+// const { userLocal } = useUserContext(); 
+// const idUser = userLocal._id;
+
+const instance = axios.create({
+  baseURL: API_URL,
+  timeout: 1000,
+  headers: authHeader()
+});
 
 const getPublicContent = () => {
-  return axios.get(API_URL + "all", { headers: authHeader() });
+  return instance.get("all");
 };
 
 const getUser = (id) => {
-  return axios.get(API_URL + "api/" + "users/" + id)
+  return instance.get(`api/users/${id}`)
 }
 
 const getRooms = (id) => {
-  return axios.get(API_URL + "api/" + "rooms",{headers:  authHeader(), params:{_id: id}})
+  return instance.get("api/rooms",{params:{_id: id}})
 }
 
-const getOneRoom = (id) => {
-  return axios.get(API_URL + "api/" + "rooms/" + id ,{headers:  authHeader()})
+const getOneRoom = (idRoom) => {
+  return instance.get(`api/rooms/${idRoom}`)
 }
 
-const getChats = (id) => {
-  return axios.get(API_URL + "api/" + "rooms/" + id + "/chats",{headers:  authHeader()})
+const getChats = (idRoom) => {
+  return instance.get(`api/rooms/${idRoom}/chats`)
 };
+
+const createChat = (idRoom, content) => {
+  return instance.post(`api/rooms/${idRoom}/chats`, {
+    content: content
+  }, {params:{_id: idUser}})
+}
 
 
 
@@ -28,7 +44,8 @@ const UserService = {
   getPublicContent,
   getRooms,
   getOneRoom,
-  getChats
+  getChats,
+  createChat
   
 };
 export default UserService;
