@@ -22,8 +22,7 @@ function ChatMain() {
           success: true
   
         }
-      );
-      
+      ); 
        
 
     })
@@ -31,10 +30,8 @@ function ChatMain() {
       setChats({
         ...chats,        
         error: error.res.data
-      });
-     
+      });     
     })
-
 
   }, [roomIdActivated])
   return (
