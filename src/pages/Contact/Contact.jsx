@@ -20,8 +20,10 @@ function Contact({value}) {
 
   }
   
+  
   return (
     <ContactComponent value={value}  handleUserClick={handleUserClick}/>
+    
   )
 }
 
