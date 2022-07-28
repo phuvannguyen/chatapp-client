@@ -7,19 +7,21 @@ import ContactMailOutlinedIcon from '@mui/icons-material/ContactMailOutlined'
 import FilePresentIcon from '@mui/icons-material/FilePresent'
 import CreateIcon from '@mui/icons-material/Create';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
+import { useParams } from 'react-router-dom'
 
 
-function InputMainComponent() {
+function InputMainComponent({handleSubmit, handleOnChange, chat}) {
+  const { idRoom } = useParams();  
   return (
     <div className="input-main">
       <div className="input-form">
         <SentimentSatisfiedIcon />
-        <form>
-          <input type="text" placeholder='Type a messager'/>
+        <form onSubmit={(e) => handleSubmit(idRoom, chat.content, e)} type="submit">
+          <input type="text" placeholder='Type a messager' value={chat.content} onChange={handleOnChange} />
           <CreateIcon />
-          <button type="submit">
+          <button >
             <SendRoundedIcon />            
-          </button>         
+          </button>        
           
         </form>
 
