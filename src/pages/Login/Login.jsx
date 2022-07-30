@@ -2,16 +2,10 @@ import LoginForm  from '@components/LoginForm'
 import AuthService from "../../service/auth.service"
 import React, {useState, useRef} from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useRoomContext } from '@contexts/RoomContext';
-import { useUserContext } from '@contexts/UserContext';
+
 
 
 function Login() {
-  const { room } = useRoomContext();
-  const { userLocal } = useUserContext();
-  
-  const users = userLocal.username;
-  const id = userLocal._id;
 
   let navigate = useNavigate();
   const form = useRef();
@@ -80,7 +74,10 @@ function Login() {
         if (response.data.token) {
           localStorage.setItem("user", JSON.stringify(response.data))
         };
-        navigate("/chat/" + users + "/" + id)
+        //use to find router
+        const {username, _id} = response.data.user;      
+
+        navigate(`/chat/${username}/${_id}`)
 
         
       })
