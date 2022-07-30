@@ -25,7 +25,7 @@ function Siderbar() {
     .catch((err) => {
       setContact({
         ...contact,
-        error: err.res.data
+        error: err.message
       })
 
     })
