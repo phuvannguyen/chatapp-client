@@ -6,13 +6,10 @@ function UserContextProvider({ children }){
   const data = JSON.parse(localStorage.getItem("user"));
 
   const user = data?.user || undefined;
-  const token = data?.token || undefined;
-
-  let { id } = useParams();
+  const token = data?.token || undefined; 
   let userGlobal;  
 
-  user && token ? userGlobal =  user : userGlobal = {_id: id};
-     
+  user && token ? userGlobal =  user : userGlobal = "";     
 
   const [userLocal, setUserLocal] = useState({
     ...userGlobal
