@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react'
 import MainComponent from '@components/MainComponent'
 import { useRoomContext } from '@contexts/RoomContext'
 import UserService from "../../service/user.service"
+import { useParams } from 'react-router-dom'
 
 function Main() {
-  const { room } = useRoomContext();
+  let {idRoom} = useParams();
+  const { room, setRoom} = useRoomContext();
   
   const [roomState, setRoomState] = useState({
     room: {},
@@ -13,7 +15,7 @@ function Main() {
   });
 
   useEffect(() => {
-    UserService.getOneRoom(room.roomIdActivated).
+    UserService.getOneRoom(idRoom).
     then((res) => {      
       setRoomState({
         ...roomState, 
@@ -21,6 +23,7 @@ function Main() {
         error: "",
         success: true
       });
+      setRoom({roomIdActivated: idRoom})
       
       
 
@@ -28,12 +31,12 @@ function Main() {
     .catch((error) => {
       setRoomState({
         ...roomState, 
-        error: error.res.data        
+        error: error.res?.data        
       });
 
 
     })
-  }, [room.roomIdActivated])
+  }, [idRoom])
   return (
     <MainComponent roomState={roomState}/>
   )
