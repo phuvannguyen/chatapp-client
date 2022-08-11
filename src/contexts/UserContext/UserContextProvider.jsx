@@ -12,7 +12,7 @@ function UserContextProvider({ children }){
   let userGlobal;  
 
   user && token ? userGlobal =  user : userGlobal = {_id: id};
-  console.log("userGlobal is", userGlobal);   
+     
 
   const [userLocal, setUserLocal] = useState({
     ...userGlobal
