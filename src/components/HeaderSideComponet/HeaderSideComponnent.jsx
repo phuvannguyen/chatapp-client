@@ -10,7 +10,7 @@ import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined'
 import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 import { useUserContext } from '@contexts/UserContext';
 
-function HeaderSideComponnent() {
+function HeaderSideComponnent({valueFind, handleChange, handleSubmit}) {    
     const { userLocal } = useUserContext();
     const  { username, email} = userLocal;
     
@@ -43,8 +43,9 @@ function HeaderSideComponnent() {
         <div className="search">
             <div className="search-form">
                 <SearchIcon />
-                <form >
-                    <input type="text"  placeholder='People, Users, Group'/>
+                <form onSubmit={(e) => handleSubmit(valueFind, e)}>
+                    <input type="text"  placeholder='People, Users, Group' 
+                            value={valueFind} onChange={handleChange}/>
                 </form>
             </div>            
             <IconButton >
