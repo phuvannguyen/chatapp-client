@@ -16,8 +16,8 @@ const getPublicContent = () => {
   return instance.get("all");
 };
 
-const getUser = (id) => {
-  return instance.get(`api/users/${id}`)
+const getUsers = (valueFind) => {
+  return instance.get(`api/users`, {params: {content: valueFind}})
 }
 
 const getRooms = (id) => {
@@ -42,6 +42,7 @@ const createChat = (idRoom, content) => {
 
 const UserService = {
   getPublicContent,
+  getUsers,
   getRooms,
   getOneRoom,
   getChats,
