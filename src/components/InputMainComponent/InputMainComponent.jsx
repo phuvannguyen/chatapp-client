@@ -17,7 +17,7 @@ function InputMainComponent({handleSubmit, handleOnChange, chat}) {
       <div className="input-form">
         <SentimentSatisfiedIcon />
         <form onSubmit={(e) => handleSubmit(idRoom, chat.content, e)} type="submit">
-          <input type="text" placeholder='Type a messager' value={chat.content} onChange={handleOnChange} />
+          <input type="text" placeholder='Type a message' value={chat.content} onChange={handleOnChange} />
           <CreateIcon />
           <button >
             <SendRoundedIcon />            
