@@ -1,8 +1,8 @@
 import React from 'react'
-import "./ContactComponent.css"
+import "./RoomComponent.css"
 import { Avatar} from '@mui/material';
 
-function ContactComponent({value, handleUserClick}) {  
+function RoomComponent({value, handleUserClick}) {  
   const url = value?.profile?.avatar_url || ""; //handle case underfind.
   return (    
     <div  className="chat_header"  onClick={(e) => handleUserClick(value._id, e)} role="button" tabIndex={0}>
@@ -19,4 +19,4 @@ function ContactComponent({value, handleUserClick}) {
   )
 }
 
-export default ContactComponent
+export default RoomComponent
