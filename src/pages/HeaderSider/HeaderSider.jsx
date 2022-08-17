@@ -1,42 +1,25 @@
 import React, { useState } from 'react'
 import HeaderSideComponnent from '@components/HeaderSideComponet'
+import Contact from '@pages/Contact';
 import UserService from '../../service/user.service';
+import Siderbar from '@pages/Siderbar';
 
 
-function HeaderSider() {
+function HeaderSider({handleFindUser}) {
   const [valueFind, setValueFind] = useState("");
-  const [resultFind, setResultFind] = useState("");
+  
 
   const handleChange = (e) => {    
     setValueFind(e.target.value);       
 
   }
   
-  const handleSubmit =(value, e) => {
-    e.preventDefault();
-    UserService.getUsers(value)
-      .then((response) => {
-        setResultFind(response.data);        
-
-      })
-      .catch((error) => {
-        setResultFind(error.response.data);
-        
-
-      });
-    console.log(resultFind);     
-    setValueFind("");
-
-  } 
 
   return (
-    <div>
-      <HeaderSideComponnent handleChange={handleChange} 
-                          handleSubmit={handleSubmit} 
-                          valueFind={valueFind}/>
-      {/* <ContactComponent resultFind={resultFind}/> */}
-
-    </div>
+    <HeaderSideComponnent handleChange={handleChange} 
+                          handleFindUser={handleFindUser} 
+                          valueFind={valueFind} 
+                          setValueFind={setValueFind}/>
     
   )
 }
