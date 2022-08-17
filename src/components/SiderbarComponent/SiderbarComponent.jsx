@@ -1,18 +1,28 @@
 import React from 'react'
 import HeaderSider from '@pages/HeaderSider';
 import "./SiderbarComponent.css"
+import Room from '@pages/Room';
 import Contact from '@pages/Contact';
 
-function SiderbarComponent({contact}) {
+function SiderbarComponent(props) {
+  const {contact,resultFind,handleFindUser}   = props;  
   const { contacts, error, success} = contact;
 
   return (
     <div className="siderbar">
-      <HeaderSider />
+      <HeaderSider handleFindUser={handleFindUser}/>
+      {
+        resultFind && <div className="main_siderbar">
+          {resultFind.map((value, index) => {
+            return (<Contact value={value} key={index} />)
+          })}
+
+        </div>
+      }
       {success && 
         <div className="main_siderbar">        
           {contacts.map((value, index) => {
-            return (<Contact value={value} key={index}/>)       
+            return (<Room value={value} key={index}/>)       
             
 
           })}
