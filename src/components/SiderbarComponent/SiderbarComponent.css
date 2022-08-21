@@ -1,5 +1,6 @@
 .siderbar {
-    height: 100%;    
+    height: 100%;
+    max-width: 20%;    
 
     flex: 20%;
     justify-self: center;
@@ -14,6 +15,10 @@
     height: 70%;    
     overflow-y: scroll;
 
+}
+
+.chat_found_nothing {    
+    padding: 15px 10px;    
 }
 
 

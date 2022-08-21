@@ -5,20 +5,22 @@ import Room from '@pages/Room';
 import Contact from '@pages/Contact';
 
 function SiderbarComponent(props) {
-  const {contact,resultFind,handleFindUser}   = props;  
-  const { contacts, error, success} = contact;
+  const {contact,resultFind,handleFindUser, handleDeleteFind}   = props;  
+  const { contacts, error, success, searching} = contact;
+  
 
   return (
     <div className="siderbar">
-      <HeaderSider handleFindUser={handleFindUser}/>
+      <HeaderSider handleFindUser={handleFindUser} handleDeleteFind={handleDeleteFind}/>
       {
-        resultFind && <div className="main_siderbar">
-          {resultFind.map((value, index) => {
+        searching && <div className="main_siderbar">          
+          {resultFind.result.map((value, index) => {
             return (<Contact value={value} key={index} />)
           })}
+          {resultFind.error && <div className="chat_found_nothing" >{resultFind.error}</div>}
 
         </div>
-      }
+      }      
       {success && 
         <div className="main_siderbar">        
           {contacts.map((value, index) => {

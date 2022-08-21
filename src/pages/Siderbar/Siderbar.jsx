@@ -8,28 +8,70 @@ function Siderbar(props) {
   const [contact, setContact] = useState({
     contacts: [],
     error: "",
-    success: false 
+    success: false,
+    searching: false 
   });
-  const [resultFind, setResultFind] = useState("");
+  const [search, setSearch] = useState("")
+  const [resultFind, setResultFind] = useState({
+    result: [],
+    error: ""
+  });
   const { _id } = userLocal;
   
-  const handleFindUser =(value, e, emptyValue) => {
+  const handleFindUser =(value, e, emptyValue) => {    
     e.preventDefault();
-    UserService.getUsers(value)
+    setSearch(value.trim());
+    setContact({
+      ...contact,
+      searching:true
+    })               
+    emptyValue("");
+  };
+
+  const handleDeleteFind = () => {
+    setContact({
+      ...contact,
+      searching: !contact.searching
+      
+
+    })
+  }
+
+  useEffect(() => {
+    UserService.getUsers(search)
       .then((response) => {
-        setResultFind(response.data);        
+        if (response.data.length === 0) {
+          setResultFind({
+            result: [],
+            error: "Can't find the result. Please find by another keyword"
+          });
+          return;
+        };
+        setResultFind({
+          result: response.data,
+          error:""
+        });        
 
       })
       .catch((error) => {
-        setResultFind(error.response.data);
+        setResultFind({
+          ...resultFind,
+          result: [],
+          error: error.response.data
+        });
         
 
       });
-      console.log(resultFind);         
-      emptyValue("");
-  }
+    return setResultFind({
+      result: [],
+      error: ""
 
-  
+    })       
+      
+      
+
+  }, [search]);
+
   useEffect(() => {
     UserService.getRooms(_id).
     then((res) => {
@@ -54,7 +96,8 @@ function Siderbar(props) {
   return (
     <SiderbarComponent contact={contact} 
                         resultFind={resultFind} 
-                        handleFindUser={handleFindUser}/>
+                        handleFindUser={handleFindUser} 
+                        handleDeleteFind={handleDeleteFind}/>
   )
 }
 
