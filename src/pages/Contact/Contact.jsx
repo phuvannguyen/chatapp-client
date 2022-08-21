@@ -4,15 +4,15 @@ import { useRoomContext } from "@contexts/RoomContext";
 import { useNavigate } from 'react-router-dom';
 
 function Contact({value}) {
-  const { room, setRoom } = useRoomContext();
-  const idUser = value._id; 
+  const { room, setRoom } = useRoomContext();  
+  const username = value.username; 
 
   let navigate = useNavigate(); 
   
   const handleUserClick = (_id, e) =>  {    
     e.preventDefault();        
     setRoom({roomIdActivated: _id});    
-    navigate(`/chat/${idUser}/${_id}`);
+    navigate(`/chat/${username}/${_id}`);
 
   }
   
