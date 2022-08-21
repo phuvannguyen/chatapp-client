@@ -5,7 +5,7 @@ import UserService from '../../service/user.service';
 import Siderbar from '@pages/Siderbar';
 
 
-function HeaderSider({handleFindUser}) {
+function HeaderSider({handleFindUser, handleDeleteFind}) {
   const [valueFind, setValueFind] = useState("");
   
 
@@ -19,7 +19,8 @@ function HeaderSider({handleFindUser}) {
     <HeaderSideComponnent handleChange={handleChange} 
                           handleFindUser={handleFindUser} 
                           valueFind={valueFind} 
-                          setValueFind={setValueFind}/>
+                          setValueFind={setValueFind} 
+                          handleDeleteFind={handleDeleteFind}/>
     
   )
 }
