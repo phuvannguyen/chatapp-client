@@ -20,6 +20,10 @@ const getUsers = (valueFind) => {
   return instance.get(`api/users`, {params: {content: valueFind}})
 }
 
+const getUser = (id) => {
+  return instance.get(`api/users/${id}`)
+}
+
 const getRooms = (id) => {
   return instance.get("api/rooms",{params:{_id: id}})
 }
@@ -46,7 +50,8 @@ const UserService = {
   getRooms,
   getOneRoom,
   getChats,
-  createChat
+  createChat,
+  getUser
   
 };
 export default UserService;
