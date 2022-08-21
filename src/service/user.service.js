@@ -28,6 +28,15 @@ const getRooms = (id) => {
   return instance.get("api/rooms",{params:{_id: id}})
 }
 
+const createOneRoom = (title, _id, member) => {
+  return instance.post("api/rooms",{
+    title: title, 
+    description: "personal", 
+    _id: _id,
+    member: member
+  })
+}
+
 const getOneRoom = (idRoom) => {
   return instance.get(`api/rooms/${idRoom}`)
 }
@@ -49,9 +58,11 @@ const UserService = {
   getUsers,
   getRooms,
   getOneRoom,
+  createOneRoom,
   getChats,
   createChat,
-  getUser
+  getUser,
+  
   
 };
 export default UserService;
