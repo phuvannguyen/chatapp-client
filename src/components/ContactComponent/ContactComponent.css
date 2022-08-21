@@ -1,6 +1,6 @@
 .chat_header {
     padding: 5px;
-    margin: 5px;    
+    margin: 5px;      
 
     border: none;
     border-radius: 10px;
@@ -12,6 +12,10 @@
     background-color: #90d7ff;
 }
 
+.chat_header .chat_found_nothing {
+    height: 100%;
+}
+
 .chat_avatar {
     padding: 15px 10px;
     display: flex
@@ -20,6 +24,7 @@
 
 
 .chat_avatar .chat_headerinfo {
+    margin: auto 0;
     padding-left: 10px;
     
 }
@@ -27,4 +32,5 @@
 .chat_headerinfo p {
     font-size: 14px;
 }
+
 
