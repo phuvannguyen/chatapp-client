@@ -10,7 +10,7 @@ import Login from '@pages/Login'
 import SignUp from '@pages/SignUp'
 import Main from '@pages/Main';
 import Siderbar from '@pages/Siderbar';
-import EmptyComponent from '@components/EmptyComponent';
+import Empty from '@pages/Empty';
 
 
 
@@ -29,10 +29,10 @@ function App() {
                   <Siderbar />
                   <Routes>
                     <Route path={"room/:idRoom"} element={<Main />}/>                    
-                    <Route path={""} element={<EmptyComponent />}/>
-                    <Route path={":user/:id"} element={<EmptyComponent />}/>                    
+                    <Route path={""} element={<Empty />}/>
+                    <Route path={":user/:id"} element={<Empty />}/>                    
                   </Routes>
-                  <EmptyComponent />
+                  <Empty />
                 </div>
               } 
             />          
