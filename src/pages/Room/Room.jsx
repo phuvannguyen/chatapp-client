@@ -21,8 +21,7 @@ function Room({value}) {
   useEffect(() => {
    
     UserService.getChats(value._id)
-    .then((res) => {
-      console.log(res.data);
+    .then((res) => {      
       setChat(res.data)
 
     })
