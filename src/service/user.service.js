@@ -28,6 +28,11 @@ const getRooms = (id) => {
   return instance.get("api/rooms",{params:{_id: id}})
 }
 
+const findJoinedByUser = (ownerId, memberId) => {
+  return instance.get(`api/users/${ownerId}/members/${memberId}`)
+
+}
+
 const createOneRoom = (title, _id, member) => {
   return instance.post("api/rooms",{
     title: title, 
@@ -62,6 +67,7 @@ const UserService = {
   getChats,
   createChat,
   getUser,
+  findJoinedByUser
   
   
 };
