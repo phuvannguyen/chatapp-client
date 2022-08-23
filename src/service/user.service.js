@@ -8,7 +8,7 @@ const API_URL = "http://localhost:8080/";
 
 const instance = axios.create({
   baseURL: API_URL,
-  timeout: 1000,
+  timeout: 10000,
   headers: authHeader()
 });
 
