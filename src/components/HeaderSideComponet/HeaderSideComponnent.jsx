@@ -58,13 +58,13 @@ function HeaderSideComponnent({valueFind, handleChange, handleFindUser, setValue
 
         </div>
         <div className="icon">
-            <div className="chat">
+            <div className="chat" onClick={handleDeleteFind}>
                 <IconButton>
                     <ChatBubbleOutlineOutlinedIcon />
                 </IconButton>
                 <p>Chats</p>
             </div>
-            <div className="contacts">
+            <div className="contacts" onClick={handleDeleteFind}>
                 <IconButton>
                     <MenuBookOutlinedIcon />
                 </IconButton>
