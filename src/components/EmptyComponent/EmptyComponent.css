@@ -19,13 +19,18 @@
 .empty button {
     margin-top: 20px;
     padding: 20px;
-    background-color: #9ac4f8;
+    background-color: #64E9EE;
     border-radius: 10px;
     border: none;
 
     color: white;
     font-size:medium;
 };
+.empty button:hover {
+    background-color: #000000;
+    
+}
+
 
 @media screen and (max-width = 480px) {
     .empty {
