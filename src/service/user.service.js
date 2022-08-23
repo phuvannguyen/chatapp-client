@@ -29,7 +29,7 @@ const getRooms = (id) => {
 }
 
 const findJoinedByUser = (ownerId, memberId) => {
-  return instance.get(`api/users/${ownerId}/members/${memberId}`)
+  return instance.get(`api/users/${ownerId}/${memberId}`)
 
 }
 
