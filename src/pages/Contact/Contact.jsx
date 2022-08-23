@@ -18,8 +18,7 @@ function Contact({value}) {
     //check if room is already, navigate to the existing room or navigate to the new user
     async function checkRoomExists() {
       try {
-        let roomExisted = await UserService.findJoinedByUser(_id, userLocal._id);
-        console.log(roomExisted);
+        let roomExisted = await UserService.findJoinedByUser(_id, userLocal._id);        
 
         if (roomExisted.data) {
           navigate(`/chat/room/${roomExisted.data._id}`);
