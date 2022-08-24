@@ -5,7 +5,7 @@ import "./MessagerComponent.css"
 
 function MessagerComponent({chat, error, success}) {
     const {userLocal} = useUserContext();
-    console.log(userLocal) 
+    
     
     const username = chat.profile?.name || chat.owner.username;
     const idChater = chat.owner._id;
