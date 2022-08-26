@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 
-const URL = "http://localhost:8080/";
+const URL = "ws://localhost:8080/";
 
-const socket = io(URL, { autoConnect: false });
+const socket = io(URL);
 
 export default socket;
