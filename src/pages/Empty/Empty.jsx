@@ -10,7 +10,6 @@ function Empty() {
   let { id } = useParams();
   let navigate = useNavigate();
   const { userLocal } = useUserContext();
-
   const [infoUser, setInfoUser] = useState({
     content: "",
     error:""
@@ -25,9 +24,9 @@ function Empty() {
       try {
         let createOneRoom =  await UserService.createOneRoom(title, _id, member);
         const {data} = createOneRoom;
-        if (data) {
+        if (data) {          
           const createAChat = await UserService.createChat(data._id, `Hello, Nice to meet you, ${title}`);
-          setMessage(message);
+          setMessage(createAChat.data);
           if (createAChat) {
             navigate(`/chat/room/${data._id}`);
           }
@@ -45,7 +44,8 @@ function Empty() {
   };
 
   useEffect(() => {
-        socketAPI.emit("onGreeting", {message});
+    console.log(message);
+    socketAPI.emit("onGreeting", {message});
 
   }, [message])
 
