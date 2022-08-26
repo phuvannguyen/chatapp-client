@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import UserService from '../../service/user.service';
 import { useUserContext } from '@contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
+import socketAPI from '../../socket/index'
 
 function Empty() {
   let { id } = useParams();
@@ -14,6 +15,7 @@ function Empty() {
     content: "",
     error:""
   });
+  const [message, setMessage] = useState("");
   const _id = infoUser.content._id;
   const member = userLocal._id;  
   const title = infoUser.content.profile?.name || infoUser.content?.username;
@@ -25,7 +27,7 @@ function Empty() {
         const {data} = createOneRoom;
         if (data) {
           const createAChat = await UserService.createChat(data._id, `Hello, Nice to meet you, ${title}`);
-          console.log(createAChat.data);
+          setMessage(message);
           if (createAChat) {
             navigate(`/chat/room/${data._id}`);
           }
@@ -41,6 +43,11 @@ function Empty() {
     onGreeting();
 
   };
+
+  useEffect(() => {
+        socketAPI.emit("onGreeting", {message});
+
+  }, [message])
 
 
   useEffect(() => {
@@ -63,7 +70,7 @@ function Empty() {
   }, [id]);
 
   return (
-    <EmptyComponent infoUser={infoUser} handleGreeting={handleGreeting} />
+    <EmptyComponent infoUser={infoUser} handleGreeting={handleGreeting}  />
   )
 }
 
