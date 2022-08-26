@@ -1,12 +1,12 @@
 import LoginForm  from '@components/LoginForm'
 import AuthService from "../../service/auth.service"
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect}  from 'react'
 import { useNavigate } from 'react-router-dom';
 
 
 
 function Login() {
-
+  const userLocal = JSON.parse(localStorage.getItem('user'));  
   let navigate = useNavigate();
   const form = useRef();
   const checkBtn = useRef();
@@ -84,7 +84,7 @@ function Login() {
       .catch(function (error) {
         setUser({
           ...user,
-          error: error.message,
+          error: error.response.data,
           success: false
         });
         console.log(error)
@@ -92,7 +92,14 @@ function Login() {
   
     }
 
-    }   
+    };
+
+    useEffect(() => {
+      if (userLocal) {
+        navigate(`/chat/${userLocal.user.username}/${userLocal.user._id}`)
+      }
+
+    }, []) 
     
     
 
