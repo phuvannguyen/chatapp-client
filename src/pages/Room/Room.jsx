@@ -39,11 +39,12 @@ function Room({value}) {
   useEffect(() => {
     let usersList = [...value.member, value.owner];
     let filteredUsers = usersList.filter(id => id !== idUser);
+    let data = []
   
     filteredUsers.forEach(userId => {
       UserService.getUser(userId)
         .then(user => {
-          setUsers([...users, user.data]);          
+          data.push(user.data);         
 
           })
         .catch(err => {
@@ -51,11 +52,7 @@ function Room({value}) {
         });
       
       });
-
-    
-
-
-
+    setUsers(data);
   }, [])
   
   useEffect(() => {    
