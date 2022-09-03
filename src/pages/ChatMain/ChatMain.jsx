@@ -38,7 +38,12 @@ function ChatMain() {
     })
   }, [roomIdActivated]);
 
-  useEffect(() => {    
+  useEffect(() => {
+    socketContext.on("onGreeting", (chat) => {      
+      console.log("Received message", chat);
+      setArrivalChat(chat);
+    });
+        
     socketContext.on("receiveMessage", (chat) => {      
       console.log("Received message", chat);
       setArrivalChat(chat);
