@@ -17,15 +17,19 @@ function HeaderMain({roomState}) {
       let usersList = [...room.member, room.owner];
       let filteredUsers = usersList.filter(id => id !== idUser);
       let data = [];
+      let users = [];
       let setTitle;
       for (let userId of filteredUsers) {
-        UserService.getUser(userId)
-          .then(user => {
-            data.push(user.data);
-          })
-      };      
-      setTitle = data.length === 1 ?  data[0].profile?.name || data[0].username : title;
-      setTitleHeader(setTitle);   
+        data.push(UserService.getUser(userId));
+      };
+
+      Promise.all(data).then(responses => {        
+        users.push(responses[0].data);
+        
+        setTitle = users.length === 1 ?  users[0].profile?.name || users[0].username : title;        
+        setTitleHeader(setTitle); 
+      });           
+        
   }}, [room]); 
   
   return (
