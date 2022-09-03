@@ -24,7 +24,7 @@ function MessagerComponent({chat, error, success}) {
         <span className="timestamp">{currentTime}</span>
       </p>}
       {success && 
-      <p className={userLocal._id === idChater ? "chat_message": "chat_message chat_receiver"}>
+      <p className={userLocal._id === idChater ? "chat_message": "chat_message chat_receiver"} >
         <span className="username">{username}</span>
             {content}
         <span className="timestamp">{timeChat}</span>
