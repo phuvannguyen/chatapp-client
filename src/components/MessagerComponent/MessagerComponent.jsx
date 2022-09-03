@@ -10,9 +10,9 @@ function MessagerComponent({chat, error, success}) {
     const username = chat.profile?.name || chat.owner.username;
     const idChater = chat.owner._id;
     const content = chat.content;
-    const timeChat = new Date(chat.createdAt).toUTCString();
+    const timeChat = new Date(chat.createdAt).toLocaleString();
        
-    const currentTime = new Date().toUTCString()
+    const currentTime = new Date().toLocaleString();
     
     
   return (
