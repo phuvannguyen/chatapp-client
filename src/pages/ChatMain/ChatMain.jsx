@@ -12,10 +12,17 @@ function ChatMain() {
   });
   const {socketContext} = useSocketContext();
   const [arrivalChat, setArrivalChat] = useState(null);
+  const chatRef = useRef(null);
   
 
   let {idRoom} = useParams();    
   const roomIdActivated = idRoom;
+  useEffect(() => {
+    const domNode = chatRef.current;    
+    if (domNode) {
+       domNode.scrollTop = domNode.scrollHeight;
+    }
+ }, [chats.content])
  
   useEffect(() => {    
     UserService.getChats(roomIdActivated).
@@ -64,7 +71,7 @@ function ChatMain() {
 
 
   return (
-    <ChatMainComponent chats={chats} />
+    <ChatMainComponent chats={chats} chatRef={chatRef} />
   )
 }
 
