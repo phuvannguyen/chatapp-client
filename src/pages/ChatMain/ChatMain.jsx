@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import ChatMainComponent from '@components/ChatMainComponent'
 import UserService from "../../service/user.service"
-import socket from '../../socket/index.js'
 import { useParams } from 'react-router-dom'
+import { useSocketContext } from '@contexts/SocketContext'
 
 function ChatMain() {
   const [chats, setChats] = useState({
@@ -10,6 +10,9 @@ function ChatMain() {
     error: "",
     success: false
   });
+  const {socketContext} = useSocketContext();
+  const [arrivalChat, setArrivalChat] = useState(null);
+  
 
   let {idRoom} = useParams();    
   const roomIdActivated = idRoom;
@@ -35,13 +38,28 @@ function ChatMain() {
     })
   }, [roomIdActivated]);
 
-  // useEffect(() => {    
-  //   socket.content = {chat: chats.content};
-  //   socket.connect();
+  useEffect(() => {    
+    socketContext.on("receiveMessage", (chat) => {      
+      console.log("Received message", chat);
+      setArrivalChat(chat);
+     
+    })}, [socketContext]);
+
+  useEffect(() => {
+    if (arrivalChat?.content.trim()) {      
+      setChats({
+        ...chats,
+        content: [...chats.content, arrivalChat]
+      })
+
+    }
     
-  // }, [chats.content]);
+
+  }, [arrivalChat]);
+
+
   return (
-    <ChatMainComponent chats={chats}/>
+    <ChatMainComponent chats={chats} />
   )
 }
 
