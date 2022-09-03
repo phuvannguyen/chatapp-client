@@ -1,14 +1,20 @@
 import RoomComponent from "@components/RoomComponent";
 import React, { useEffect, useState } from 'react'
 import { useRoomContext } from "@contexts/RoomContext";
+import { useUserContext } from "@contexts/UserContext";
+import { useSocketContext } from "@contexts/SocketContext";
 import { useNavigate } from 'react-router-dom';
-import { useParams } from "react-router-dom";
 import UserService from '../../service/user.service';
 
 
-function Room({value}) {
+function Room({value}) {  
   const { room, setRoom } = useRoomContext();
-  const [chat, setChat] = useState("");  
+  const {userLocal} = useUserContext();
+  const {socketContext} = useSocketContext();
+  const {_id} = userLocal;
+  const [chat, setChat] = useState("");
+  const [arrivalChat, setArrivalChat] = useState(null);
+  const [user, setUser] = useState(""); 
   let navigate = useNavigate();
  
   
@@ -28,13 +34,34 @@ function Room({value}) {
     .catch((err) => {
       console.log(err)
     })
-  }, []);    
+  }, []);
+  
+  useEffect(() => {    
+    socketContext.on("receiveMessage", (chat) => {
+      if (chat.conversation === value._id)
+      setArrivalChat(chat);
+      
+      
+      
+     
+    })}, [socketContext]);
 
-  
-  
+  useEffect(() => {
+    if (arrivalChat?.content.trim()) {             
+            
+      setChat({
+        ...chat,
+        ...arrivalChat
+      })
+           
+
+    }
+    
+
+  }, [arrivalChat]);    
   
   return (
-    <RoomComponent value={value}  handleUserClick={handleUserClick} chat={chat}/>
+    <RoomComponent value={value}  handleUserClick={handleUserClick} chat={chat} user={user} arrivalChat={arrivalChat}/>
     
   )
 }
