@@ -1,5 +1,5 @@
-import example from "./example";
+import AuthRoute from "./AuthRoute";
 
 export {
-  example
+  AuthRoute
 }
