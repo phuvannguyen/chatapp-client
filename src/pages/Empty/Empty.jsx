@@ -66,7 +66,7 @@ function Empty() {
     .catch(error => {
       setInfoUser({
         ...infoUser,
-        error: error.response.data
+        error: error.message
       })
 
     })   
