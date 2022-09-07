@@ -11,6 +11,7 @@ import SignUp from '@pages/SignUp'
 import Main from '@pages/Main';
 import Siderbar from '@pages/Siderbar';
 import Empty from '@pages/Empty';
+import AuthRoute from '@utils/AuthRoute'
 
 
 
@@ -25,15 +26,17 @@ function App() {
           <Route path="/signup/" element={<SignUp />} />
           <Route path="/chat/*" 
               element={
-                <div className='chatApp'>
-                  <Siderbar />
-                  <Routes>
-                    <Route path={"room/:idRoom"} element={<Main />}/>                    
-                    <Route path={""} element={<Empty />}/>
-                    <Route path={":user/:id"} element={<Empty />}/>                    
-                  </Routes>
-                  <Empty />
-                </div>
+                <AuthRoute>
+                  <div className='chatApp'>
+                    <Siderbar />
+                    <Routes>
+                      <Route path={"room/:idRoom"} element={<Main />}/>                    
+                      <Route path={""} element={<Empty />}/>
+                      <Route path={":user/:id"} element={<Empty />}/>                    
+                    </Routes>                    
+                  </div>
+                </AuthRoute>
+                
               } 
             />          
           

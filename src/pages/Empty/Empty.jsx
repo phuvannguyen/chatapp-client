@@ -8,7 +8,8 @@ import { useSocketContext } from '@contexts/SocketContext';
 
 
 function Empty() {
-  let { id } = useParams();
+  const params = useParams(); 
+  // let { id } = useParams();
   const {socketContext} = useSocketContext();
   let navigate = useNavigate();
   const { userLocal } = useUserContext();
@@ -55,7 +56,9 @@ function Empty() {
 
 
   useEffect(() => {
-    UserService.getUser(id)
+    const {id} = params;
+    
+    id && UserService.getUser(id)
     .then((response) => {      
       setInfoUser({
         ...infoUser,
@@ -70,7 +73,7 @@ function Empty() {
       })
 
     })   
-  }, [id]);
+  }, [params]);
 
   return (
     <EmptyComponent infoUser={infoUser} handleGreeting={handleGreeting}  />
