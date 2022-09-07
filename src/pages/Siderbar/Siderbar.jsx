@@ -57,7 +57,7 @@ function Siderbar(props) {
         setResultFind({
           ...resultFind,
           result: [],
-          error: error.response.data
+          error: error.message
         });
         
 
@@ -72,7 +72,7 @@ function Siderbar(props) {
 
   }, [search]);
 
-  useEffect(() => {
+  useEffect(() => {    
     UserService.getRooms(_id).
     then((res) => {
       setContact({
@@ -83,14 +83,15 @@ function Siderbar(props) {
       });
     }) 
     .catch((err) => {
-      setContact({
-        ...contact,
-        error: err.message
-      })
+      // setContact({
+      //   ...contact,
+      //   error: err.message
+      // })
+      console.log(err)
 
     })
 
-  }, []);
+  }, [_id]);
   
   
   return (
