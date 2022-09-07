@@ -22,12 +22,15 @@ function HeaderMain({roomState}) {
       for (let userId of filteredUsers) {
         data.push(UserService.getUser(userId));
       };
+      
+      Promise.all(data).then(responses => {               
+        if (responses[0]?.data) {
+          users.push(responses[0]?.data);     
+          setTitle = users.length === 1 ?  users[0].profile?.name || users[0].username : title;        
+          setTitleHeader(setTitle); 
 
-      Promise.all(data).then(responses => {        
-        users.push(responses[0]?.data);
+        }        
         
-        setTitle = users.length === 1 ?  users[0].profile?.name || users[0].username : title;        
-        setTitleHeader(setTitle); 
       });           
         
   }}, [room]); 
