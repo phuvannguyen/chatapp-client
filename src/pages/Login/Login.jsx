@@ -2,11 +2,12 @@ import LoginForm  from '@components/LoginForm'
 import AuthService from "../../service/auth.service"
 import React, {useState, useRef, useEffect}  from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import { useUserContext } from '@contexts/UserContext';
 
 
 function Login() {
-  const userLocal = JSON.parse(localStorage.getItem('user'));  
+  const userStorage = JSON.parse(localStorage.getItem('user'));
+  const {setUserLocal} = useUserContext();   
   let navigate = useNavigate();
   const form = useRef();
   const checkBtn = useRef();
@@ -66,25 +67,25 @@ function Login() {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.login(username, password)
       .then(function (response) {
-        setUser({
-          ...user,
-          error: "Login sucess",
-          success: true
-        });
         if (response.data.token) {
           localStorage.setItem("user", JSON.stringify(response.data))
+          setUser({
+            ...user,
+            error: "Login sucess",
+            success: true
+          });
+            setUserLocal(response.data.user);//handle update User Contexts
+            const {username, _id} = response.data.user;
+            window.location.replace(`/chat/${username}/${_id}`);  
         };
-        //use to find router
-        const {username, _id} = response.data.user;      
-
-        navigate(`/chat/${username}/${_id}`)
+        
 
         
       })
       .catch(function (error) {
         setUser({
           ...user,
-          error: error.response.data,
+          error: error.message,
           success: false
         });
         console.log(error)
@@ -93,10 +94,11 @@ function Login() {
     }
 
     };
+    
 
     useEffect(() => {
-      if (userLocal) {
-        navigate(`/chat/${userLocal.user.username}/${userLocal.user._id}`)
+      if (userStorage) {         
+        navigate(`/chat/${userStorage.user.username}/${userStorage.user._id}`)
       }
 
     }, []) 
