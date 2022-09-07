@@ -12,7 +12,7 @@ function RoomComponent({value, handleUserClick, chat, user, arrivalChat}) {
                     value.title
   return (    
     <div  className="chat_header"  onClick={(e) => handleUserClick(value._id, e)} role="button" tabIndex={0}>
-      <div className='chat_avatar'>
+      <div className='chat_avatar'>        
         <Avatar alt={value.title} src={url} />
           <div className="chat_headerinfo">
             <h3>{titleRoom}</h3>
