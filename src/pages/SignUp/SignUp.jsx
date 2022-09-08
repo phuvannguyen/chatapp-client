@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react'
 import axios from "axios"
 import SignUpForm from '@components/Registation'
+import AuthService from "../../service/auth.service"
 
 function SignUp() {
   const form = useRef();
@@ -84,7 +85,7 @@ function SignUp() {
     e.preventDefault();
     form.current.validateAll();
     if (checkBtn.current.context._errors.length === 0) {
-      axios.post('http://localhost:8080/api/registation', {
+      AuthService.register({
         username, email,  password
       })
       .then(function (response) {        
