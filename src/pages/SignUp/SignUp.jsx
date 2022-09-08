@@ -84,7 +84,7 @@ function SignUp() {
     e.preventDefault();
     form.current.validateAll();
     if (checkBtn.current.context._errors.length === 0) {
-      axios.post('https://chat-app-server-02.herokuapp.com/api/registation', {
+      axios.post('http://localhost:8080/api/registation', {
         username, email,  password
       })
       .then(function (response) {        

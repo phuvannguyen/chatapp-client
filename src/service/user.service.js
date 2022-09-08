@@ -2,7 +2,7 @@ import axios from "axios";
 import authHeader from "./auth-header";
 // import { useUserContext } from "@contexts/UserContext";
 
-const API_URL = "https://chat-app-server-02.herokuapp.com/";
+const API_URL = "http://localhost:8080/";
 // const { userLocal } = useUserContext(); 
 // const idUser = userLocal._id;
 
