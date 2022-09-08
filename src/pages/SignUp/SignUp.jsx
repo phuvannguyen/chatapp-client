@@ -85,10 +85,11 @@ function SignUp() {
     e.preventDefault();
     form.current.validateAll();
     if (checkBtn.current.context._errors.length === 0) {
-      AuthService.register({
+      AuthService.register(
         username, email,  password
-      })
-      .then(function (response) {        
+      )
+      .then(function (response) {
+        console.log(response.data);        
         setUser({
           ...user,
           error: "Sign Up is successed",
