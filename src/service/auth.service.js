@@ -1,7 +1,7 @@
 
 import axios from "axios"
 
-const REACT_APP_API_URL = "http://localhost:8080/api/";
+const REACT_APP_API_URL = "https://chat-app-server-02.herokuapp.com/api/";
 const register  = (username, email, password) => {
     return axios.post(REACT_APP_API_URL + "registation" + "/", {
             username,
