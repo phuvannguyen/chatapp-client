@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 
 
-const URL = "ws://chat-app-server-02.herokuapp.com/";
+const URL = "ws://localhost:8071/";
 
 const socket = io(URL);
 
